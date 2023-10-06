@@ -8,10 +8,10 @@ package pila;
  *
  * @author alepd
  */
+
 public class Pila implements iPila {
 
     int cima;
-
     int capacidad;
 
     int numElementos;
