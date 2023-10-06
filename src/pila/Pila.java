@@ -4,14 +4,16 @@
  */
 package pila;
 
+import static java.lang.Thread.sleep;
+
 /**
  *
  * @author alepd
  */
-
 public class Pila implements iPila {
 
     int cima;
+
     int capacidad;
 
     int numElementos;
@@ -33,9 +35,13 @@ public class Pila implements iPila {
     @Override
     public void apila(Object elemento) throws Exception {
         if (!pilaLlena()) {
+            sleep(100);
             datos[numElementos] = elemento;
+            sleep(100);
             numElementos++;
+            sleep(100);
             cima++;
+            sleep(100);
         } else {
             throw new Exception("La pila esta llena");
         }
@@ -45,10 +51,15 @@ public class Pila implements iPila {
     public Object desapila() throws Exception {
         Object aux;
         if (!pilaVacia()) {
+            sleep(100);
             aux = primero();
+            sleep(100);
             datos[numElementos] = null;
+            sleep(100);
             numElementos--;
+            sleep(100);
             cima--;
+            sleep(100);
         } else {
             throw new Exception("La pila esta vacia (p.desapila)");
         }
