@@ -4,32 +4,38 @@
  */
 package pila;
 
-import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
  * @author alepd
  */
 public class Consumidor implements Runnable{
-    private Pila p;
+    private PilaLenta pila;
     
-    public Consumidor(int capacidadPila){
-        p = new Pila(capacidadPila);
+    public Consumidor(PilaLenta pila){
+        this.pila=pila;
     }
 
-    public void producir() throws Exception{
-        Random r = new Random(System.currentTimeMillis());
+    public void consumir() throws Exception{
 
         for (int i = 0; i < 10; i++) {
-            int numeroRandom = r.nextInt(100);
 
-            System.out.println((i+1) + "º Apilo el umero aleatorio " + numeroRandom);
+            System.out.println("Procedo a desapilar por " + (i+1) + " º ésima vez");
 
-            p.apila(numeroRandom);
+            Object n = pila.desapila();
+            
+            System.out.println("He desapilado el numero " + (int)n);
         }
     }
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            consumir();
+        } catch (Exception ex) {
+            Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

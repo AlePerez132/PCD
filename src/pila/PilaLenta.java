@@ -10,7 +10,7 @@ import static java.lang.Thread.sleep;
  *
  * @author alepd
  */
-public class Pila implements iPila {
+public class PilaLenta implements iPila {
 
     int cima;
 
@@ -20,7 +20,7 @@ public class Pila implements iPila {
 
     Object[] datos;
 
-    public Pila(int capacidad) {
+    public PilaLenta(int capacidad) {
         this.capacidad = capacidad;
         datos = new Object[capacidad];
         numElementos = 0;
