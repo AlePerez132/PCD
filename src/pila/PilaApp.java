@@ -78,7 +78,7 @@ public class PilaApp extends java.awt.Frame {
        hc1.join();
         System.out.println("Fin consumidor");
       
-/*
+
         sleep(3000);
         for (int i = 0; i < 3; i++) {
             synchronized (pila) {
@@ -87,7 +87,7 @@ public class PilaApp extends java.awt.Frame {
             sleep(200);
             System.out.println("Notica la main");
         }
-  */      hp1.join();
+        hp1.join();
         hp2.join();
         hp2.join();
         hp3.join();
